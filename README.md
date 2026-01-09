@@ -134,7 +134,7 @@ nest-starter-kit/
    Edit `.env.development` and add your credentials:
    ```env
    NODE_ENV=development
-   PORT=3000
+   PORT=3006
    
    # Database
    DATABASE_URL=postgresql://user:password@localhost:5432/mydb
@@ -165,9 +165,9 @@ nest-starter-kit/
    ```
 
 7. **Access the application**
-   - API: http://localhost:3000
-   - Swagger Docs: http://localhost:3000/api/docs
-   - Health Check: http://localhost:3000/health
+   - API: http://localhost:3006
+   - Swagger Docs: http://localhost:3006/api/docs
+   - Health Check: http://localhost:3006/health
 
 ## 🔐 Environment Variables
 
@@ -176,7 +176,7 @@ nest-starter-kit/
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `NODE_ENV` | Environment mode | `development`, `production`, `test` |
-| `PORT` | Application port | `3000` |
+| `PORT` | Application port | `3006` |
 | `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@host:5432/db` |
 | `CLERK_PUBLISHABLE_KEY` | Clerk publishable key | `pk_test_...` |
 | `CLERK_SECRET_KEY` | Clerk secret key | `sk_test_...` |
@@ -221,7 +221,7 @@ npx prisma generate        # Generate Prisma Client
 
 ### Swagger UI
 
-Access the interactive API documentation at: **http://localhost:3000/api/docs**
+Access the interactive API documentation at: **http://localhost:3006/api/docs**
 
 Features:
 - 🔍 Explore all available endpoints
@@ -356,7 +356,7 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/prisma ./prisma
 ENV NODE_ENV=production
-EXPOSE 3000
+EXPOSE 3006
 CMD ["node", "dist/main"]
 ```
 

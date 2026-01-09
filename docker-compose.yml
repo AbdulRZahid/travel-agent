@@ -34,6 +34,17 @@ services:
       timeout: 3s
       retries: 5
 
+  brain:
+    build:
+      context: ./brain
+    container_name: travel_agent_brain
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   postgres_data:
   redis_data:

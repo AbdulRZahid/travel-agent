@@ -25,7 +25,7 @@ export class EnvironmentVariables {
 
   @IsNumber()
   @Min(1)
-  PORT: number = 3000;
+  PORT: number = 3006;
 
   // ========== Database ==========
   @IsString()
