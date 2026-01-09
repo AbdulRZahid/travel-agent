@@ -40,19 +40,29 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P1003':
-          throw new NotFoundException('Database does not exist at the specified path.');
+          throw new NotFoundException(
+            'Database does not exist at the specified path.',
+          );
 
         case 'P1008':
-          throw new RequestTimeoutException('Database operation timed out. Please try again.');
+          throw new RequestTimeoutException(
+            'Database operation timed out. Please try again.',
+          );
 
         case 'P1009':
-          throw new ConflictException('Database already exists on the database server.');
+          throw new ConflictException(
+            'Database already exists on the database server.',
+          );
 
         case 'P1010':
-          throw new ForbiddenException('Database user was denied access to the database.');
+          throw new ForbiddenException(
+            'Database user was denied access to the database.',
+          );
 
         case 'P1011':
-          throw new ServiceUnavailableException('Error opening a TLS connection to the database.');
+          throw new ServiceUnavailableException(
+            'Error opening a TLS connection to the database.',
+          );
 
         case 'P1012':
           throw new BadRequestException(
@@ -60,10 +70,14 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P1013':
-          throw new BadRequestException('The provided database connection string is invalid.');
+          throw new BadRequestException(
+            'The provided database connection string is invalid.',
+          );
 
         case 'P1014':
-          throw new NotFoundException('The underlying table or collection does not exist.');
+          throw new NotFoundException(
+            'The underlying table or collection does not exist.',
+          );
 
         case 'P1015':
           throw new BadRequestException(
@@ -76,11 +90,15 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P1017':
-          throw new ServiceUnavailableException('Server has closed the connection.');
+          throw new ServiceUnavailableException(
+            'Server has closed the connection.',
+          );
 
         // Query engine errors (P2000-P2037)
         case 'P2000':
-          throw new BadRequestException('The provided value is too long for the column.');
+          throw new BadRequestException(
+            'The provided value is too long for the column.',
+          );
 
         case 'P2001':
           throw new NotFoundException(
@@ -93,7 +111,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P2003':
-          throw new ConflictException('Foreign key constraint failed on the specified field.');
+          throw new ConflictException(
+            'Foreign key constraint failed on the specified field.',
+          );
 
         case 'P2004':
           throw new ConflictException('A constraint failed on the database.');
@@ -104,7 +124,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P2006':
-          throw new BadRequestException('The provided value for the field is not valid.');
+          throw new BadRequestException(
+            'The provided value for the field is not valid.',
+          );
 
         case 'P2007':
           throw new BadRequestException('Data validation error encountered.');
@@ -119,7 +141,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           throw new BadRequestException('Raw query failed to execute.');
 
         case 'P2011':
-          throw new BadRequestException('Null constraint violation on the specified constraint.');
+          throw new BadRequestException(
+            'Null constraint violation on the specified constraint.',
+          );
 
         case 'P2012':
           throw new BadRequestException('Missing a required value.');
@@ -139,10 +163,14 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           throw new BadRequestException('Query interpretation error.');
 
         case 'P2017':
-          throw new ConflictException('Records for the relation are not connected.');
+          throw new ConflictException(
+            'Records for the relation are not connected.',
+          );
 
         case 'P2018':
-          throw new NotFoundException('Required connected records were not found.');
+          throw new NotFoundException(
+            'Required connected records were not found.',
+          );
 
         case 'P2019':
           throw new BadRequestException('Input error encountered.');
@@ -151,13 +179,19 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           throw new BadRequestException('Value is out of range for the type.');
 
         case 'P2021':
-          throw new NotFoundException('The table does not exist in the current database.');
+          throw new NotFoundException(
+            'The table does not exist in the current database.',
+          );
 
         case 'P2022':
-          throw new NotFoundException('The column does not exist in the current database.');
+          throw new NotFoundException(
+            'The column does not exist in the current database.',
+          );
 
         case 'P2023':
-          throw new BadRequestException('Inconsistent column data encountered.');
+          throw new BadRequestException(
+            'Inconsistent column data encountered.',
+          );
 
         case 'P2024':
           throw new ServiceUnavailableException(
@@ -186,7 +220,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           throw new BadRequestException('Query parameter limit exceeded.');
 
         case 'P2030':
-          throw new BadRequestException('Cannot find a fulltext index to use for the search.');
+          throw new BadRequestException(
+            'Cannot find a fulltext index to use for the search.',
+          );
 
         case 'P2031':
           throw new BadRequestException(
@@ -204,13 +240,19 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P2035':
-          throw new InternalServerErrorException('Assertion violation on the database.');
+          throw new InternalServerErrorException(
+            'Assertion violation on the database.',
+          );
 
         case 'P2036':
-          throw new InternalServerErrorException('Error in external connector.');
+          throw new InternalServerErrorException(
+            'Error in external connector.',
+          );
 
         case 'P2037':
-          throw new ServiceUnavailableException('Too many database connections opened.');
+          throw new ServiceUnavailableException(
+            'Too many database connections opened.',
+          );
 
         // Schema engine / migration errors (P3000-P3024)
         case 'P3000':
@@ -222,7 +264,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P3002':
-          throw new InternalServerErrorException('The attempted migration was rolled back.');
+          throw new InternalServerErrorException(
+            'The attempted migration was rolled back.',
+          );
 
         case 'P3003':
           throw new BadRequestException(
@@ -256,7 +300,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P3010':
-          throw new BadRequestException('Migration name is too long. Must not exceed 200 characters.');
+          throw new BadRequestException(
+            'Migration name is too long. Must not exceed 200 characters.',
+          );
 
         case 'P3011':
           throw new BadRequestException(
@@ -305,7 +351,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P3021':
-          throw new BadRequestException('Foreign keys cannot be created on this database.');
+          throw new BadRequestException(
+            'Foreign keys cannot be created on this database.',
+          );
 
         case 'P3022':
           throw new BadRequestException(
@@ -332,7 +380,9 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           throw new NotFoundException('The introspected database was empty.');
 
         case 'P4002':
-          throw new BadRequestException('The schema of the introspected database was inconsistent.');
+          throw new BadRequestException(
+            'The schema of the introspected database was inconsistent.',
+          );
 
         // Prisma Accelerate errors (P5011, P6000-P6010)
         case 'P5011':
@@ -350,16 +400,25 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P6002':
-          throw new UnauthorizedException('The API Key in the connection string is invalid.');
+          throw new UnauthorizedException(
+            'The API Key in the connection string is invalid.',
+          );
 
         case 'P6003':
-          throw new HttpException('Plan limit has been reached. Included usage exceeded.', 402);
+          throw new HttpException(
+            'Plan limit has been reached. Included usage exceeded.',
+            402,
+          );
 
         case 'P6004':
-          throw new RequestTimeoutException('Global timeout of Accelerate has been exceeded.');
+          throw new RequestTimeoutException(
+            'Global timeout of Accelerate has been exceeded.',
+          );
 
         case 'P6005':
-          throw new BadRequestException('Invalid parameters supplied to Accelerate.');
+          throw new BadRequestException(
+            'Invalid parameters supplied to Accelerate.',
+          );
 
         case 'P6006':
           throw new BadRequestException(
@@ -372,18 +431,26 @@ export class PrismaClientExceptionFilter implements ExceptionFilter {
           );
 
         case 'P6009':
-          throw new PayloadTooLargeException('Response size limit of Accelerate has been exceeded.');
+          throw new PayloadTooLargeException(
+            'Response size limit of Accelerate has been exceeded.',
+          );
 
         case 'P6010':
-          throw new ForbiddenException('Your Accelerate project is disabled. Please enable it to use.');
+          throw new ForbiddenException(
+            'Your Accelerate project is disabled. Please enable it to use.',
+          );
 
         default:
-          throw new InternalServerErrorException('An unexpected database error occurred.');
+          throw new InternalServerErrorException(
+            'An unexpected database error occurred.',
+          );
       }
     }
     // Handle Prisma Validation Errors
     else if (exception instanceof Prisma.PrismaClientValidationError) {
-      throw new BadRequestException('Database validation error: ' + exception.message);
+      throw new BadRequestException(
+        'Database validation error: ' + exception.message,
+      );
     }
 
     // Fallback for unknown errors

@@ -37,7 +37,7 @@ export class RedisController {
         memoryUsed: '0',
         uptime: 0,
         connectedClients: 0,
-      }
+      };
     }
 
     try {

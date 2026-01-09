@@ -1,4 +1,9 @@
-import { applyDecorators, SerializeOptions, Type, UseInterceptors } from '@nestjs/common';
+import {
+  applyDecorators,
+  SerializeOptions,
+  Type,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 import { ClassSerializerInterceptor } from '@nestjs/common';
 
@@ -12,4 +17,3 @@ export const ApiSuccessResponse = <T>(type: Type<T> | [Type<T>]) => {
     UseInterceptors(ClassSerializerInterceptor),
   );
 };
-

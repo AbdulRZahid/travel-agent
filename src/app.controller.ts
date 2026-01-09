@@ -1,4 +1,9 @@
-import { ClassSerializerInterceptor, Controller, Get, UseInterceptors } from '@nestjs/common';
+import {
+  ClassSerializerInterceptor,
+  Controller,
+  Get,
+  UseInterceptors,
+} from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import * as appService from './app.service';
 import { Public } from './common/decorators/public.decorator';
@@ -12,7 +17,10 @@ export class AppController {
 
   @Public()
   @Get('/health')
-  @ApiOperation({ summary: 'Health check', description: 'Check if the API is running' })
+  @ApiOperation({
+    summary: 'Health check',
+    description: 'Check if the API is running',
+  })
   @ApiSuccessResponse(HealthCheckResponse)
   getHello(): HealthCheckResponse {
     return this.appService.healthCheck();

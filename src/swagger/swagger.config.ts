@@ -7,11 +7,7 @@ export class SwaggerConfig {
       .setTitle('Nest Starter Kit API')
       .setDescription('Professional NestJS API with Clerk authentication')
       .setVersion('1.0')
-      .setContact(
-        'API Support',
-        'https://example.com',
-        'support@example.com',
-      )
+      .setContact('API Support', 'https://example.com', 'support@example.com')
       .setLicense('MIT', 'https://opensource.org/licenses/MIT')
       .addBearerAuth(
         {
@@ -36,6 +32,5 @@ export class SwaggerConfig {
         showRequestDuration: true,
       },
     });
-    
   }
 }

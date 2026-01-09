@@ -9,6 +9,7 @@ import {
   Min,
   IsNotEmpty,
   IsOptional,
+  Matches,
 } from 'class-validator';
 
 export enum Environment {
@@ -49,13 +50,17 @@ export class EnvironmentVariables {
   CLERK_WEBHOOK_SECRET: string;
 
   // ========== Redis (Optional) ==========
-  @IsUrl({ require_tld: false })
+  @Matches(/^redis(s)?:\/\/.+/, {
+    message: 'REDIS_URL must be a valid Redis URL (redis:// or rediss://)',
+  })
   @IsOptional()
   REDIS_URL?: string;
 }
 
 // Validation function
-export function validateEnv(config: Record<string, unknown>): EnvironmentVariables {
+export function validateEnv(
+  config: Record<string, unknown>,
+): EnvironmentVariables {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
     enableImplicitConversion: true,
   });
@@ -67,7 +72,10 @@ export function validateEnv(config: Record<string, unknown>): EnvironmentVariabl
   if (errors.length > 0) {
     console.error('❌ Environment validation failed:');
     errors.forEach((error) => {
-      console.error(`${error.property}:`, Object.values(error.constraints || {}));
+      console.error(
+        `${error.property}:`,
+        Object.values(error.constraints || {}),
+      );
     });
     throw new Error('Invalid environment variables');
   }

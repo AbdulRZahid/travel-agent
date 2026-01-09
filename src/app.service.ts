@@ -14,7 +14,6 @@ export class HealthCheckResponse {
   @Exclude()
   @ApiProperty({ example: 'Server is up and running' })
   message: string;
-
 }
 
 @Injectable()

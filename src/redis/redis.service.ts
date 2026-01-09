@@ -1,8 +1,13 @@
-import { BadRequestException, Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  Logger,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createClient, RedisClientType } from 'redis';
 import { EnvironmentVariables } from '../config/env.config';
-
 
 @Injectable()
 export class RedisService implements OnModuleInit, OnModuleDestroy {
@@ -62,7 +67,9 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
    */
   private getClientOrThrow(): RedisClientType {
     if (!this.client?.isReady || !this.isConnected) {
-      throw new BadRequestException('Redis client is not connected or initialized');
+      throw new BadRequestException(
+        'Redis client is not connected or initialized',
+      );
     }
     return this.client;
   }

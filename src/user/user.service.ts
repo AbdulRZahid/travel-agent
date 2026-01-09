@@ -1,7 +1,4 @@
-import {
-  Injectable,
-  Logger
-} from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PrismaClient } from 'generated/prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { ClerkUser } from 'src/webhook/interfaces';
@@ -15,9 +12,7 @@ export interface IUser {
 export class UserService {
   private readonly logger = new Logger(UserService.name);
 
-  constructor(
-    private readonly prisma: PrismaService,
-  ) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   // ==========================================
   // SIMPLE WEBHOOK METHODS (No Syncing)
@@ -115,10 +110,7 @@ export class UserService {
     return fullName || null;
   }
 
-  async findUserById(
-    clerkId: string,
-    tx?: PrismaClient,
-  ): Promise<any | null> {
+  async findUserById(clerkId: string, tx?: PrismaClient): Promise<any | null> {
     const prisma = tx || this.prisma;
     return prisma.user.findUnique({
       where: { id: clerkId },

@@ -5,7 +5,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_FILTER, APP_GUARD } from '@nestjs/core';
 import { ConfigModule } from './config/config.module';
 import { PrismaModule } from './prisma/prisma.module';
-import {  ClerkModule } from './auth/clerk.module';
+import { ClerkModule } from './auth/clerk.module';
 import { UserModule } from './user/user.module';
 import { WebhookModule } from './webhook/webhook.module';
 import { RedisModule } from './redis/redis.module';
@@ -38,12 +38,12 @@ import { ClerkAuthGuard } from './common/guards/auth-guard';
     },
     {
       provide: APP_GUARD,
-      useClass: ClerkAuthGuard
+      useClass: ClerkAuthGuard,
     },
     {
       provide: APP_FILTER,
       useClass: PrismaClientExceptionFilter,
-    }
+    },
   ],
 })
-export class AppModule { }
+export class AppModule {}

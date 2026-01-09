@@ -1,5 +1,4 @@
-import { Prisma } from "generated/prisma/browser";
-
+import { Prisma } from 'generated/prisma/browser';
 
 export function mapClerkUserToDbUser(
   clerkId: string,
@@ -12,11 +11,11 @@ export function mapClerkUserToDbUser(
   );
 
   return {
-    id:clerkId,
+    id: clerkId,
     email: primaryEmail?.emailAddress || null,
-    name: [clerkUser.firstName, clerkUser.lastName]
-      .filter(Boolean)
-      .join(' ') || null,
+    name:
+      [clerkUser.firstName, clerkUser.lastName].filter(Boolean).join(' ') ||
+      null,
     // Add your appLanguage and contentLanguage relations here
     // appLanguage: { connect: { id: appLanguageId } },
     // contentLanguage: { connect: { id: contentLanguageId } },
@@ -34,12 +33,13 @@ export function mapClerkWebhookUserToDbUser(
   );
 
   return {
-    id:clerkId,
+    id: clerkId,
     email: primaryEmail?.email_address || null,
-    name: [webhookPayload.first_name, webhookPayload.last_name]
-      .filter(Boolean)
-      .join(' ') || null,
-    
+    name:
+      [webhookPayload.first_name, webhookPayload.last_name]
+        .filter(Boolean)
+        .join(' ') || null,
+
     // Add your appLanguage and contentLanguage relations here
     // appLanguage: { connect: { id: appLanguageId } },
     // contentLanguage: { connect: { id: contentLanguageId } },

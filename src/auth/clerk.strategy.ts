@@ -8,7 +8,6 @@ import jwksClient from 'jwks-rsa';
 import { UserService } from '../user/user.service';
 import { EnvConfig } from 'src/config/env.config';
 
-
 @Injectable()
 export class ClerkStrategy extends PassportStrategy(Strategy, 'clerk') {
   private jwks: jwksClient.JwksClient;
@@ -39,7 +38,6 @@ export class ClerkStrategy extends PassportStrategy(Strategy, 'clerk') {
     const token = req.headers.authorization?.split(' ').pop();
 
     if (!token) {
-    
       throw new UnauthorizedException('No token provided');
     }
 
@@ -52,7 +50,6 @@ export class ClerkStrategy extends PassportStrategy(Strategy, 'clerk') {
           resolve(decoded);
         });
       });
-
 
       // if you want to sync user on each request, uncomment below and add the fields (e.g. syncedWithBackend) to the token's custom claims or in jwt templetes )
       // let syncAction = false;
@@ -72,9 +69,7 @@ export class ClerkStrategy extends PassportStrategy(Strategy, 'clerk') {
       //   decodedToken,
       //   syncAction,
       // };
-      return { decodedToken  };
-
-
+      return { decodedToken };
     } catch (error) {
       console.error('Token validation error:', error);
       throw new UnauthorizedException('Invalid token');
